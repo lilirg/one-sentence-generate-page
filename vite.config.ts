@@ -5,6 +5,8 @@ import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import ElementPlus from 'unplugin-element-plus/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import UnoCSS from 'unocss/vite'
 import { fileURLToPath, URL } from 'node:url'
 
@@ -21,12 +23,28 @@ export default defineConfig({
         'vue-router',
         'pinia',
       ],
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        ElementPlusResolver(),
+        IconsResolver({
+          prefix: 'Icon',
+          extension: 'vue',
+        }),
+      ],
       dts: 'src/auto-imports.d.ts',
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        ElementPlusResolver(),
+        IconsResolver({
+          prefix: 'Icon',
+          extension: 'vue',
+        }),
+      ],
       dts: 'src/components.d.ts',
+    }),
+    Icons({
+      compiler: 'vue3',
+      autoInstall: true,
     }),
     ElementPlus({}),
     UnoCSS(),
