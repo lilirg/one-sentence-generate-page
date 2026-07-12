@@ -1,42 +1,6 @@
 <template>
   <div class="min-h-screen grid-bg">
-    <!-- Header -->
-    <header class="navbar fixed-top w-full z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <div class="flex items-center gap-2">
-            <div class="w-10 h-10 rounded-xl flex-center bg-gradient-to-br from-cyan-400 to-cyan-600 glow-pulse">
-              <IconMdVideoAccount width="24" height="24" color="#fff" />
-            </div>
-            <span class="text-xl font-bold gradient-text">CloudMeet</span>
-          </div>
-          <div class="hidden md:flex items-center gap-2">
-            <router-link to="/" class="nav-link">首页</router-link>
-            <router-link to="/services" class="nav-link">服务</router-link>
-            <router-link to="/docs" class="nav-link">文档</router-link>
-            <router-link to="/pricing" class="nav-link">价格</router-link>
-            <router-link to="/about" class="nav-link active">关于</router-link>
-          </div>
-          <div class="flex items-center gap-3">
-            <button class="px-4 py-2 rounded-xl text-cyan-300 border border-cyan-400/30 hover:bg-cyan-400/10 transition-all duration-200 text-sm font-medium">登录</button>
-            <button class="clay-btn text-sm px-5 py-2">免费开始</button>
-          </div>
-          <button class="md:hidden p-2 text-cyan-300" @click="menuOpen = !menuOpen">
-            <IconMdMenu width="24" height="24" v-if="!menuOpen" />
-            <IconMdClose width="24" height="24" v-else />
-          </button>
-        </div>
-        <div v-if="menuOpen" class="md:hidden py-4 border-t border-cyan-400/10">
-          <div class="flex flex-col gap-2">
-            <router-link to="/" class="nav-link" @click="menuOpen = false">首页</router-link>
-            <router-link to="/services" class="nav-link" @click="menuOpen = false">服务</router-link>
-            <router-link to="/docs" class="nav-link" @click="menuOpen = false">文档</router-link>
-            <router-link to="/pricing" class="nav-link" @click="menuOpen = false">价格</router-link>
-            <router-link to="/about" class="nav-link" @click="menuOpen = false">关于</router-link>
-          </div>
-        </div>
-      </div>
-    </header>
+    <Navbar />
 
     <!-- Page Header -->
     <section class="pt-32 pb-16 px-4">
@@ -363,10 +327,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import IconMdVideoAccount from '~icons/mdi/video-account'
-import IconMdMenu from '~icons/mdi/menu'
-import IconMdClose from '~icons/mdi/close'
+import Navbar from '@/components/header/Navbar.vue'
 import IconMdPeople from '~icons/mdi/people'
 import IconMdRocketLaunch from '~icons/mdi/rocket-launch'
 import IconMdHandShake from '~icons/mdi/handshake'
@@ -382,10 +343,6 @@ import IconMdGithub from '~icons/mdi/github'
 import IconMdDribbble from '~icons/mdi/dribbble'
 import IconMdStar from '~icons/mdi/star'
 import IconMdGlobe from '~icons/mdi/globe'
-import IconMdWeChat from '~icons/mdi/wechat'
-import IconMdWeibo from '~icons/mdi/web'
-
-const menuOpen = ref(false)
 </script>
 
 <style scoped>
@@ -393,9 +350,5 @@ const menuOpen = ref(false)
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.navbar {
-  z-index: 100;
 }
 </style>

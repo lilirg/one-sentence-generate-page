@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <div class="flex items-center gap-2">
-          <div class="w-10 h-10 rounded-xl flex-center bg-gradient-145deg-cyan-400-to-cyan-600 glow-pulse">
+          <div class="w-10 h-10 rounded-xl flex-center bg-gradient-to-br from-cyan-400 to-cyan-600 glow-pulse">
             <IconMdVideoAccount width="24" height="24" color="#fff" />
           </div>
           <span class="text-xl font-bold gradient-text">CloudMeet</span>
@@ -20,12 +20,16 @@
             <IconMdDevices width="18" height="18" class="mr-1" />
             服务
           </router-link>
+          <router-link to="/cases" class="nav-link" active-class="active">
+            <IconMdStar width="18" height="18" class="mr-1" />
+            案例
+          </router-link>
           <router-link to="/docs" class="nav-link" active-class="active">
-            <IconMdMenu width="18" height="18" class="mr-1" />
+            <IconMdBookOpen width="18" height="18" class="mr-1" />
             文档
           </router-link>
           <router-link to="/pricing" class="nav-link" active-class="active">
-            <IconMdCashMultiple width="18" height="18" class="mr-1" />
+            <IconMdCash width="18" height="18" class="mr-1" />
             价格
           </router-link>
           <router-link to="/about" class="nav-link" active-class="active">
@@ -54,11 +58,24 @@
       <!-- Mobile Menu -->
       <div v-if="menuOpen" class="md:hidden py-4 border-t border-cyan-400/10">
         <div class="flex flex-col gap-2">
-          <router-link to="/" class="nav-link" @click="menuOpen = false">首页</router-link>
-          <router-link to="/services" class="nav-link" @click="menuOpen = false">服务</router-link>
-          <router-link to="/docs" class="nav-link" @click="menuOpen = false">文档</router-link>
-          <router-link to="/pricing" class="nav-link" @click="menuOpen = false">价格</router-link>
-          <router-link to="/about" class="nav-link" @click="menuOpen = false">关于</router-link>
+          <router-link to="/" class="nav-link" @click="menuOpen = false">
+            <IconMdHome width="16" height="16" class="mr-2" />首页
+          </router-link>
+          <router-link to="/services" class="nav-link" @click="menuOpen = false">
+            <IconMdDevices width="16" height="16" class="mr-2" />服务
+          </router-link>
+          <router-link to="/cases" class="nav-link" @click="menuOpen = false">
+            <IconMdStar width="16" height="16" class="mr-2" />案例
+          </router-link>
+          <router-link to="/docs" class="nav-link" @click="menuOpen = false">
+            <IconMdBookOpen width="16" height="16" class="mr-2" />文档
+          </router-link>
+          <router-link to="/pricing" class="nav-link" @click="menuOpen = false">
+            <IconMdCash width="16" height="16" class="mr-2" />价格
+          </router-link>
+          <router-link to="/about" class="nav-link" @click="menuOpen = false">
+            <IconMdInformation width="16" height="16" class="mr-2" />关于
+          </router-link>
         </div>
       </div>
     </div>
@@ -72,7 +89,9 @@ import IconMdDevices from '~icons/mdi/devices'
 import IconMdMenu from '~icons/mdi/menu'
 import IconMdClose from '~icons/mdi/close'
 import IconMdVideoAccount from '~icons/mdi/video-account'
-import IconMdCashMultiple from '~icons/mdi/cash-multiple'
+import IconMdStar from '~icons/mdi/star'
+import IconMdBookOpen from '~icons/mdi/book-open'
+import IconMdCash from '~icons/mdi/cash'
 import IconMdInformation from '~icons/mdi/information'
 
 const menuOpen = ref(false)
